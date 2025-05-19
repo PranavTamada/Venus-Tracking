@@ -1,0 +1,26 @@
+# Venus Tracking System Default Configuration
+
+location:
+  latitude: 51.4778
+  longitude: -0.0015
+  elevation: 0
+
+# Tracking settings
+tracking_interval: 60  # seconds
+real_time: false
+
+# Output settings
+output_file: data/venus_data.csv
+create_plots: true
+
+# Atmospheric model settings
+atmospheric_model:
+  enabled: true
+  complexity: basic  # basic, medium, advanced
+  include_cloud_layers: true
+
+# Visualization settings
+visualization:
+  plot_altitude_azimuth: true
+  plot_temperature: true
+  plot_3d_position: true
