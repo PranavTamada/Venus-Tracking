@@ -29,7 +29,8 @@ This project provides tools to:
 
 3. Install required packages:
 
-   ```pip install -r requirements.txt
+   ```bash
+    pip install -r requirements.txt
    ```
 
 ## Usage
