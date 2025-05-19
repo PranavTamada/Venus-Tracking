@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 # Venus Atmosphere & Position Tracking System
 
 A Python-based system for tracking the position of Venus and modeling its atmosphere.
