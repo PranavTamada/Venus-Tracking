@@ -26,6 +26,7 @@ def load_config(config_path="config/default.yml"):
 def get_default_config():
     return {
         'location': {
+            'name': 'Royal Observatory Greenwich',
             'latitude': 51.4778,
             'longitude': -0.0015,
             'elevation': 0,
@@ -47,7 +48,12 @@ def get_default_config():
             'plot_altitude_azimuth': True,
             'plot_temperature': True,
             'plot_3d_position': False,
-        }
+            'interactive_plots': True,
+            'solar_system_map': True,
+            'export_formats': ['png', 'csv', 'json'],
+        },
+
+        'celestial_bodies': ['sun', 'moon', 'mercury', 'venus', 'earth', 'mars', 'jupiter', 'saturn', 'uranus', 'neptune'],
     }
 
 
