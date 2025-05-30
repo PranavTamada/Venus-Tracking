@@ -50,7 +50,7 @@ class AtmosphericModel:
         return m_per_s * self.conversions['m_per_s_to_km_per_h']
     
     def calculate_parameters(self, time, position):
-        distance = position['distance']['au']
+
         elongation = position['elongation']
         
         # Calculate illuminated fraction (phase)

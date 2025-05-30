@@ -125,6 +125,69 @@
         "phase": 0.848139611295769,
         "notes": "Full Venus phase - mostly day side visible; Surface temperature: 463.9\u00b0C; Surface pressure: 90.8 atm"
       }
+    },
+    {
+      "timestamp": "2025-05-30T06:55:46.480445",
+      "position": {
+        "name": "venus",
+        "altitude": -6.040553511066841,
+        "azimuth": 75.17162164483113,
+        "distance": {
+          "au": 0.6849547379192492,
+          "km": 102467770.31859623
+        },
+        "ra": 1.4664019484361819,
+        "dec": 7.007977833450005,
+        "elongation": 45.87121779542413
+      },
+      "atmosphere": {
+        "cloud_top_temperature": {
+          "k": 217.85093821506882,
+          "c": -55.299061784931155
+        },
+        "cloud_top_pressure": {
+          "bar": 0.5,
+          "atm": 0.4934615,
+          "kpa": 50.0
+        },
+        "surface_temperature": {
+          "k": 737,
+          "c": 463.85
+        },
+        "ground_temperature": {
+          "k": 737,
+          "c": 463.85
+        },
+        "surface_pressure": {
+          "bar": 92.3588883096932,
+          "atm": 91.15111112726734,
+          "kpa": 9235.88883096932
+        },
+        "surface_wind_speed": {
+          "m_per_s": 2.1962734553767205,
+          "km_per_h": 7.906584439356194
+        },
+        "surface_light_intensity": {
+          "lux": 7193.359088539198
+        },
+        "composition": {
+          "CO2": 96.5,
+          "N2": 3.5,
+          "SO2": 0.015,
+          "Ar": 0.007,
+          "CO": 0.0017,
+          "H2O": 0.002,
+          "He": 0.0012,
+          "Ne": 0.0007
+        },
+        "main_compounds": [
+          "CO2",
+          "N2",
+          "SO2"
+        ],
+        "phase": 0.8481367276883602,
+        "notes": "Full Venus phase - mostly day side visible; Surface temperature: 463.9\u00b0C; Surface pressure: 90.8 atm"
+      }
     }
   ]
 }

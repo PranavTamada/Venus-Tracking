@@ -68,15 +68,19 @@ def create_config_file():
 
 
 def create_init_files():
-    """Create __init__.py files in all src directories."""
     print("Creating __init__.py files...")
+    src_init = os.path.join('src', '__init__.py')
+    if not os.path.exists(src_init):
+       with open(src_init, 'w') as file:
+           file.write("# This file is intentionally left empty\n")
+       print(f"  Created: {src_init}")
+   
     for root, dirs, files in os.walk('src'):
         for dir_name in dirs:
             init_path = os.path.join(root, dir_name, '__init__.py')
-            os.makedirs(os.path.dirname(init_path), exist_ok=True)
             if not os.path.exists(init_path):
                 with open(init_path, 'w') as file:
-                    file.write(f"# {init_path} - Created by setup.py on {datetime.now().strftime('%Y-%m-%d %H:%M:%S')}\n")
+                   file.write("# This file is intentionally left empty\n")
                 print(f"  Created: {init_path}")
 
 

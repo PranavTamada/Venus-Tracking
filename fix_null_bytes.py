@@ -19,7 +19,7 @@ def fix_file_encoding_issues(file_path):
             with open(backup_path, 'wb') as f:
                 f.write(content)
             fixed_content = content.replace(b'\x00', b'')
-            if os.path.basename(file_path) == "__init__.py":
+            if os.path.basename(file_path) == "__init__.py" and len(fixed_content.strip()) == 0:
                 fixed_content = b"# This file is intentionally left empty\n"
             else:
                 try:

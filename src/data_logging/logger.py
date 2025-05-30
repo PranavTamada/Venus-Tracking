@@ -34,7 +34,7 @@ class DataLogger:
             'elongation': position.get('elongation')
         }
         if atmosphere:
-            if 'cloud_top_temperature' in atmosphere:
+            if {'cloud_top_temperature', 'cloud_top_pressure'} <= atmosphere.keys():
                 entry.update({
                     'cloud_temp_k': atmosphere['cloud_top_temperature']['k'],
                     'cloud_temp_c': atmosphere['cloud_top_temperature']['c'],
@@ -42,7 +42,7 @@ class DataLogger:
                     'cloud_pressure_atm': atmosphere['cloud_top_pressure']['atm'],
                     'cloud_pressure_kpa': atmosphere['cloud_top_pressure']['kpa'],
                 })
-            if 'surface_temperature' in atmosphere:
+            if {'cloud_top_temperature', 'cloud_top_pressure'} <= atmosphere.keys():
                 entry.update({
                     'surface_temp_k': atmosphere['surface_temperature']['k'],
                     'surface_temp_c': atmosphere['surface_temperature']['c'],

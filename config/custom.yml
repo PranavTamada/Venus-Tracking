@@ -21,7 +21,7 @@ location:
   name: City of New York, New York, United States
 output_file: data/venus_data.csv
 real_time: false
-tracking_interval: 10
+tracking_interval: 60
 visualization:
   plot_3d_position: true
   plot_altitude_azimuth: true

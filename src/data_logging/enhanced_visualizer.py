@@ -14,7 +14,6 @@ class EnhancedDataVisualizer:
         os.makedirs(output_dir, exist_ok=True)
         os.makedirs(os.path.join(output_dir, "static"), exist_ok=True)
         os.makedirs(os.path.join(output_dir, "interactive"), exist_ok=True)
-    
     def create_plots(self, data_file, config=None):
         try:
             df = pd.read_csv(data_file)
@@ -22,15 +21,58 @@ class EnhancedDataVisualizer:
                 print("No data available for plotting")
                 return False
             df['datetime'] = pd.to_datetime(df['timestamp'])
+
+            required_cols = {'altitude', 'azimuth'}
+            if not required_cols.issubset(df.columns):
+                print(f"Missing required columns: {required_cols - set(df.columns)}")
+                return False
+
             self._plot_altitude_azimuth(df)
-            if 'cloud_temp_k' in df.columns and 'surface_pressure_bar' in df.columns:
+            
+            # Check if required columns exist before plotting position data
+            has_position_data = 'altitude' in df.columns and 'azimuth' in df.columns
+            
+            if has_position_data:
+                self._plot_altitude_azimuth(df)
+                self.create_polar_plot(df)
+                self._create_interactive_altitude_azimuth(df)
+            else:
+                print("Warning: 'altitude' and/or 'azimuth' columns missing. Skipping position plots.")
+                
+            # Check if required columns exist before plotting atmospheric data
+            has_atmospheric_data = 'cloud_temp_k' in df.columns and 'surface_pressure_bar' in df.columns
+            if has_atmospheric_data:
                 self._plot_atmospheric_data(df)
-            self.create_polar_plot(df)
-            self._create_interactive_altitude_azimuth(df)
+            else:
+                print("Warning: Atmospheric data columns missing. Skipping atmospheric plots.")
+            
+            # Check for interactive atmospheric data
             if 'cloud_temp_k' in df.columns:
                 self._create_interactive_atmospheric_data(df)
+            else:
+                print("Warning: 'cloud_temp_k' column missing. Skipping interactive atmospheric data plots.")
+            
+            # Check for distance data for solar system map
             if 'distance_au' in df.columns:
                 self._create_solar_system_map(df)
+            else:
+                print("Warning: 'distance_au' column missing. Skipping solar system map.")
+            if not has_position_data:
+                print("Warning: 'altitude' and/or 'azimuth' columns missing. Skipping position plots.")
+                
+            if 'cloud_temp_k' in df.columns and 'surface_pressure_bar' in df.columns:
+                self._plot_atmospheric_data(df)
+            
+            if 'cloud_temp_k' in df.columns:
+                self._create_interactive_atmospheric_data(df)
+            else:
+                print("Warning: 'cloud_temp_k' column missing. Skipping atmospheric data plots.")
+                
+            if 'distance_au' in df.columns:
+                self._create_solar_system_map(df)
+            else:
+                print("Warning: 'distance_au' column missing. Skipping solar system map.")
+                
             return True
         except Exception as e:
             print(f"Error creating plots: {e}")

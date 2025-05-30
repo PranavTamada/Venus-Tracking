@@ -72,9 +72,11 @@ def rebuild_src_if_needed():
 def clean_pycache():
     print_header("CLEANING PYTHON CACHE FILES")
     count = 0
-    for root, dirs, files in os.walk('.'):
+    for root, dirs, files in os.walk('.', topdown=True):
         if '__pycache__' in dirs:
             pycache_path = os.path.join(root, '__pycache__')
+            # Prevent os.walk from descending into the directory we are about to delete
+            dirs.remove('__pycache__')
             try:
                 shutil.rmtree(pycache_path)
                 print(f"Removed: {pycache_path}")

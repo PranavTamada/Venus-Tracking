@@ -97,7 +97,7 @@ class VenusApp:
         venus = results.get('celestial_bodies', {}).get('venus', {})
         if venus:
             print("\nVenus Position (from Earth):")
-            print(f"  Altitude: {venus.get('altitude', 0):.2f}Â°")
+            print(f"  Altitude: {venus.get('altitude', 0):.2f}°")
             print(f"  Azimuth: {venus.get('azimuth', 0):.2f}Â°")
             print(f"  Distance: {venus.get('distance', {}).get('au', 0):.6f} AU " +
                     f"({venus.get('distance', {}).get('km', 0):.0f} km)")

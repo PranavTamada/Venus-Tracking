@@ -74,9 +74,8 @@ def run_demo():
     print("\n1. Application initialized with default configuration")
     print("\n2. Location Management Demo")
     print("-" * 40)
-    default_location = app.config['location']
-    if 'name' not in default_location:
-        default_location['name'] = 'Greenwich, London'  
+    default_location = app.config['location'].copy()
+    default_location.setdefault('name', 'Greenwich, London')
     print(f"Default location: {default_location['name']} "
             f"({default_location['latitude']}, {default_location['longitude']}, {default_location['elevation']}m)")
     new_location = app.setup_location("New York City")

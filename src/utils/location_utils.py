@@ -35,9 +35,8 @@ class LocationManager:
             return None
     
     def validate_coordinates(self, latitude, longitude, elevation=0):
-        if latitude < -90 or latitude > 90:
-            print(f"Invalid latitude: {latitude}. Must be between -90 and 90 degrees.")
-            return False
+        if not (-90 <= latitude <= 90):
+            raise ValueError(f"Latitude out of range: {latitude}. Expected -90 … 90°")
         if longitude < -180 or longitude > 180:
             print(f"Invalid longitude: {longitude}. Must be between -180 and 180 degrees.")
             return False
