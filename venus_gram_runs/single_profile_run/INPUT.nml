@@ -1,0 +1,10 @@
+&gram
+    finalheight = 0.0
+    heightincrement = -1.0
+    initialheight = 200.0
+    initiallatitude = 30.0
+    initiallongitude = 0.0
+    numberofmontecarloruns = 1
+    spicepath = 'D:\Venus\spice_kernels'
+    trajectorymodel = 1
+/

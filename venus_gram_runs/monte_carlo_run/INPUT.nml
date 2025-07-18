@@ -1,0 +1,12 @@
+&gram
+    densityperturbationscale = 1.0
+    finalheight = 70.0
+    heightincrement = -2.0
+    initialheight = 200.0
+    initiallatitude = 0.0
+    initiallongitude = 180.0
+    initialrandomseed = 0
+    numberofmontecarloruns = 50
+    spicepath = 'D:\Venus\spice_kernels'
+    trajectorymodel = 1
+/
